@@ -3,7 +3,7 @@ An App to batch crop pictures in a folder to a specified aspect ratio.
 
 Currently only landscape pictures are supported. (The App should not drastically fail with portrait picutres but results are less than ideal...)
 
-Tested on Windows 10. Windows .exe binaries are avaiable
+Tested on Windows 10. Windows .exe binaries are avaiable, click on the "Releases" pane on the side of the page.
 
 ## Why? Aren't there tons of these apps already...?
 
