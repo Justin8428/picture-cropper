@@ -19,7 +19,7 @@ Prerequisites: Python 3.8 (other versions may work), PySimpleGUI, PIL image libr
 
 Pyinstaller is used to build the Windows binaries. It may be possible to build Mac OSX binaries as well with it however this is untested :-)
 
-Use command `pyinstaller -wF GUI.py --add-data "CLIcore.py;." --hidden-import PIL.Image`
+Use command `pyinstaller -wF GUI.py --add-data "CLIcore.py;." --hidden-import PIL.Image -i crop.ico`
 
 ## Todo
  - portrait image support
