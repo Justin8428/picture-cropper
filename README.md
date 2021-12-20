@@ -3,7 +3,7 @@ An App to batch crop pictures in a folder to a specified aspect ratio.
 
 Currently only landscape pictures are supported. (The App should not drastically fail with portrait picutres but results are less than ideal...)
 
-Tested on Windows 10. Windows .exe binaries are avaiable
+Tested on Windows 10. Windows .exe binaries are avaiable, click on the "Releases" pane on the side of the page.
 
 ## Why? Aren't there tons of these apps already...?
 
@@ -19,7 +19,7 @@ Prerequisites: Python 3.8 (other versions may work), PySimpleGUI, PIL image libr
 
 Pyinstaller is used to build the Windows binaries. It may be possible to build Mac OSX binaries as well with it however this is untested :-)
 
-Use command `pyinstaller -wF GUI.py --add-data "CLIcore.py;." --hidden-import PIL.Image`
+Use command `pyinstaller -wF GUI.py --add-data "CLIcore.py;." --hidden-import PIL.Image -i crop.ico`
 
 ## Todo
  - portrait image support
