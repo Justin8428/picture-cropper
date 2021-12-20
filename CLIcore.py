@@ -1,6 +1,7 @@
 # CLI version
 
-from PIL import Image
+# from PIL import Image # doesn't work for pyinstaller, even though we only really need the Image library...
+import PIL.Image
 import os
 import argparse
 import PySimpleGUI as sg
@@ -53,7 +54,7 @@ def App(folder, dumpto, filetype, desired_aspect_ratio, cosmetic_aspect_ratio = 
                     ################################## 
                     # part that does the cropping -- maybe we can refactor this bit out
                     picdir = f"{folder}/{picture}" # kludgy but it will do for now
-                    im = Image.open(picdir)
+                    im = PIL.Image.open(picdir)
                     width, height = im.size
 
                     # check to see if it is already in target aspect ratio, no need to crop otherwise

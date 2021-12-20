@@ -9,6 +9,8 @@ Prerequisites: Python 3.8 (other versions may work), PySimpleGUI, PIL image libr
 
 Tested on Windows 10
 
+Building: use command `pyinstaller -wF GUI.py --add-data "CLIcore.py;." --hidden-import PIL.Image`
+
 Todo:
  - portrait support
  - fix exit button in CLIcore progress bar
