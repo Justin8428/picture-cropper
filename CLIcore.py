@@ -5,6 +5,7 @@ import PIL.Image
 import os
 import argparse
 import PySimpleGUI as sg
+from iconfix import icon_crop_ico
 
 
 """ # params to modify
@@ -29,7 +30,7 @@ def App(folder, dumpto, filetype, desired_aspect_ratio, cosmetic_aspect_ratio = 
           [sg.Output(size=(80, 20))],
           [sg.Cancel()]]
     # create window
-    window = sg.Window('Progress', layout, icon='crop.ico')
+    window = sg.Window('Progress', layout, icon=icon_crop_ico)
     progress_bar = window['progressbar']
 
 

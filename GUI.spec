@@ -7,7 +7,7 @@ block_cipher = None
 a = Analysis(['GUI.py'],
              pathex=[],
              binaries=[],
-             datas=[('CLIcore.py', '.'), ('crop.ico', '.'), ('crop.gif', '.')],
+             datas=[('CLIcore.py', '.'), ('iconfix.py', '.'),('images/crop.ico', 'images'), ('images/crop.gif', 'images')],
              hiddenimports=['PIL.Image'],
              hookspath=[],
              hooksconfig={},
@@ -37,4 +37,4 @@ exe = EXE(pyz,
           disable_windowed_traceback=False,
           target_arch=None,
           codesign_identity=None,
-          entitlements_file=None , icon='crop.ico')
+          entitlements_file=None , icon='images/crop.ico')
