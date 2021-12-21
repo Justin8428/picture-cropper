@@ -49,50 +49,10 @@ def App(folder, dumpto, filetype, desired_aspect_ratio, cosmetic_aspect_ratio = 
                         ongoingops = False
                         print("Operation cancelled, you can exit the App now")
                         break
-
-
-
-                    ################################## 
-                    # part that does the cropping -- maybe we can refactor this bit out
-                    picdir = f"{folder}/{picture}" # kludgy but it will do for now
-                    im = PIL.Image.open(picdir)
-                    width, height = im.size
-
-                    # check to see if it is already in target aspect ratio, no need to crop otherwise
-                    if desired_aspect_ratio == width/height:
-                        print(f"{picture} already in {cosmetic_aspect_ratio}, skipping...")
-                        im1 = im
-                    else:
-                        if desired_aspect_ratio > width/height: # if the new aspect ratio is "narrower" than the old one, e.g. from 4:3 to 16:9. Yes I know this only works for landscape pictures
-                            # calculate new bounds
-                            new_height = width*(1/(desired_aspect_ratio))
-
-                            top = (height - new_height)/2
-                            bottom = height - top
-                            left = 0
-                            right = width
-                        else: # otherwise new aspect ratio must be wider and crop left and right off
-                        # calculate new bounds
-                            new_width = height*(desired_aspect_ratio)
-
-                            top = 0
-                            bottom = height
-                            left = (width - new_width)/2
-                            right = width - left
-
-                        # after new bounds have been calculated
-                        print(f"Cropping {picture} to {cosmetic_aspect_ratio}")
-                        im1 = im.crop((left, top, right, bottom)) # crop 
-                    # im1.show() # show image
-                    im1.save(f"{dumpto}/{picture}")
                     
-                    ##################################### end cropping routine, back to GUI programming
-
-
-
-
-
-
+                    # part that does the cropping -- maybe we can refactor this bit out
+                    PicCropCore(folder, picture, dumpto, desired_aspect_ratio, cosmetic_aspect_ratio)
+                    # end cropping routine, back to GUI programming
 
 
                     # update bar with loop value +1 so that bar eventually reaches the maximum
@@ -116,6 +76,39 @@ def App(folder, dumpto, filetype, desired_aspect_ratio, cosmetic_aspect_ratio = 
     else:
         print("Only landscape is supported at this time.")
 
+##### actual "core logic", the part that actually does the cropping. Now factored out. Could even be worth putting into another file...
+def PicCropCore(folder, picture, dumpto, desired_aspect_ratio, cosmetic_aspect_ratio):
+    picdir = f"{folder}/{picture}" # kludgy but it will do for now
+    im = PIL.Image.open(picdir)
+    width, height = im.size
+
+    # check to see if it is already in target aspect ratio, no need to crop otherwise
+    if desired_aspect_ratio == width/height:
+        print(f"{picture} already in {cosmetic_aspect_ratio}, skipping...")
+        im1 = im
+    else:
+        if desired_aspect_ratio > width/height: # if the new aspect ratio is "narrower" than the old one, e.g. from 4:3 to 16:9. Yes I know this only works for landscape pictures
+            # calculate new bounds
+            new_height = width*(1/(desired_aspect_ratio))
+
+            top = (height - new_height)/2
+            bottom = height - top
+            left = 0
+            right = width
+        else: # otherwise new aspect ratio must be wider and crop left and right off
+        # calculate new bounds
+            new_width = height*(desired_aspect_ratio)
+
+            top = 0
+            bottom = height
+            left = (width - new_width)/2
+            right = width - left
+
+        # after new bounds have been calculated
+        print(f"Cropping {picture} to {cosmetic_aspect_ratio}")
+        im1 = im.crop((left, top, right, bottom)) # crop 
+    # im1.show() # show image
+    im1.save(f"{dumpto}/{picture}")
 
 if __name__ == "__main__":
     # argument parser
