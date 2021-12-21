@@ -5,7 +5,7 @@ Currently only landscape pictures are supported. (The App should not drastically
 
 Tested on Windows 10. Windows .exe binaries are avaiable, click on the "Releases" pane on the side of the page.
 
-Licensed under CC BY-SA 4.0 (I am not a lawyer so advise if license is incompatible with upstream projects -- but the general gist is "open source but please provide attribution").
+Licensed under CC BY 4.0 (I am not a lawyer so advise if license is incompatible with upstream projects -- but the general gist is "open source but please provide attribution").
 
 ## Why? Aren't there tons of these apps already...?
 
