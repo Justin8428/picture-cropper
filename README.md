@@ -12,14 +12,14 @@ Tested on Windows 10. Windows .exe binaries are avaiable, click on the "Releases
  - Wanted something with scripting/CLI support (use the CLIcore.py script with argument options)
 
 ## How does it work
-The cropping is performed via a very simple "algorithm" - essentially for cropping a wider aspect ratio than original, the top and bottom portions of the image are discarded and the crop is centered. The reverse is true if the user wants to crop the image to a narrower aspect ratio compared to the original image.
+The cropping is performed via a very simple "algorithm" - essentially for cropping a wider aspect ratio than original, the top and bottom portions of the image are discarded and the crop is centered. The reverse is true if the user wants to crop the image to a narrower aspect ratio compared to the original image. (This means that for now panoramic images are cropped as well...)
 
 ## Building binaries from scratch
 Prerequisites: Python 3.8 (other versions may work), PySimpleGUI, PIL image library, argparse for CLI version.
 
 Pyinstaller is used to build the Windows binaries. It may be possible to build Mac OSX binaries as well with it however this is untested :-)
 
-Use command `pyinstaller -wF GUI.py --add-data "CLIcore.py;." --hidden-import PIL.Image -i crop.ico`
+Use command `pyinstaller GUI.spec`
 
 ## Todo
  - portrait image support
