@@ -8,10 +8,10 @@ def main():
             [sg.Text('_'  * 100, size=(65, 1))],
             [sg.Text('Options', font=('Helvetica', 15), justification='left')],
             [sg.Text('Filetype to convert', size=(15, 1)), sg.Drop(values=('.jpg', '.png'), auto_size_text=True, key = "FileType")],
-            [sg.Text('Desired aspect ratio', size=(15, 1)), sg.In(default_text='16:9', size=(10, 1), key = "AspectRatio")],
+            [sg.Text('Desired aspect ratio', size=(15, 1)), sg.In(default_text='16:9', size=(10, 1), key = "AspectRatio"), sg.Text('Provide in format 16:9')],
             [sg.Button('Start'), sg.Button('Exit'), sg.Button('About')]]
 
-    window = sg.Window('Batch Picture Cropper', layout, icon='crop.ico')
+    window = sg.Window('Batch Picture Cropper', layout, icon='crop.gif')
 
     while True:  # Event Loop
         event, values = window.read()
@@ -36,7 +36,7 @@ def about(): # window containing credits etc
               [sg.Text("Author: Justin8428")],
               [sg.Text("https://github.com/Justin8428/picture-cropper")],
               [sg.Button("Close")]]
-    window = sg.Window("About", layout, icon='crop.ico')
+    window = sg.Window("About", layout, icon='crop.gif')
     choice = None
     while True:
         event, values = window.read()
