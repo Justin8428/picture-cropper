@@ -32,7 +32,7 @@ def main():
 
 def about(): # window containing credits etc
     layout = [[sg.Text("About Batch Picture Cropper Frontend", font=('Helvetica', 12))],
-              [sg.Text("v0.9.2-alpha")],
+              [sg.Text("v0.9.3-beta")],
               [sg.Text("An App to batch crop pictures in a folder to a specified aspect ratio.")],
               [sg.Text("Author: Justin8428")],
               [sg.Text("https://github.com/Justin8428/picture-cropper")],

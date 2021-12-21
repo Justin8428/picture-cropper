@@ -23,7 +23,6 @@ Use command `pyinstaller GUI.spec`
 
 ## Todo
  - portrait image support
- - fix exit button in CLIcore progress bar
  - better UI
  - HiDPI
- - network share support
+ - network share support (may already work but untested)

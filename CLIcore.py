@@ -28,7 +28,7 @@ def App(folder, dumpto, filetype, desired_aspect_ratio, cosmetic_aspect_ratio = 
     layout = [[sg.Text('Progress: '), sg.Text(key="ProgressPercent")],
           [sg.ProgressBar(num_files, orientation='h', size=(20, 20), key='progressbar'), sg.Text(key="DoneNotification")],
           [sg.Output(size=(80, 20))],
-          [sg.Cancel()]]
+          [sg.Button(button_text = 'Cancel', key = "CancelButton")]]
     # create window
     window = sg.Window('Progress', layout, icon=icon_crop_ico)
     progress_bar = window['progressbar']
@@ -45,9 +45,10 @@ def App(folder, dumpto, filetype, desired_aspect_ratio, cosmetic_aspect_ratio = 
                     
                     # check to see if the cancel button was clicked and exit loop/window if clicked
                     event, values = window.read(timeout=10)
-                    if event == 'Cancel' or event == sg.WIN_CLOSED:
+                    if event == 'CancelButton' or event == sg.WIN_CLOSED:
                         ongoingops = False
                         print("Operation cancelled, you can exit the App now")
+                        window["CancelButton"].Update(text = "Exit")
                         break
                     
                     # part that does the cropping -- maybe we can refactor this bit out
@@ -65,11 +66,12 @@ def App(folder, dumpto, filetype, desired_aspect_ratio, cosmetic_aspect_ratio = 
                         ongoingops = False
                         window["DoneNotification"].update("Done. You can now close this window.")
                         print("Done. You can now close this window.")
+                        window["CancelButton"].Update(text = "Exit")
                         break
 
             else: # leave window up once task is done -- technically here we can change the text...
                 event, values = window.read(timeout=10)
-                if event == 'Cancel' or event == sg.WIN_CLOSED:
+                if event == 'CancelButton' or event == 'Exit' or event == sg.WIN_CLOSED:
                     break   
         window.close()
 
